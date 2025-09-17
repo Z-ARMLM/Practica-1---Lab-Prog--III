@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas HTML</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="container">
+        <h1>Etiquetas HTML</h1>
+        <h2>Categorias de las etiquetas</h2>
+            <div>
+                <ul class="navigation">
+                    <li><a href="#meta">Metadatos</a></li>
+                    <li><a href="#secc">Seccionamiento-Estructura</a></li>
+                    <li><a href="#CLT">Contenido-Linea-Texto</a></li>
+                    <li><a href="#TLS">Texto-Linea-Semantico</a></li>
+                    <li><a  href="#FORM">Formularios</a></li>
+                     <li><a href="#MULT">Multimedia</a></li>
+                    <li><a href="#TABS">Tablas</a></li>
+                    <li><a href="#SCAP"> Scripting y APIs</a></li>
+                    <li><a href="#ETOBS">Etiquetas obsoletas </a></li>
+                </ul>
+                </ul>
+            </div>
+            <span></span>
+<!--Metadatos del documento -->
+            <div class="row Gen-card" id="meta">
+                    <h3>Metadatos del documento</h3>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;!DOCTYPE&gt;</h5>
+                        <p>
+                            Define el tipo de documento y la versión de HTML que se está utilizando. <br>
+                            <b>Ejemplo:</b> &lt;!DOCTYPE html&gt; <br>
+                            Debe ir al inicio del documento HTML, antes de la etiqueta &lt;html&gt;.
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;html&gt;</h5>
+                        <p>
+                            Representa la raíz del documento HTML, contiene todo el contenido de la página. <br>
+                            <b>Ejemplo:</b> &lt;html lang="es"&gt; ... &lt;/html&gt; <br>
+                            Debe envolver todas las demás etiquetas (excepto &lt;!DOCTYPE&gt;).
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;head&gt;</h5>
+                        <p>
+                            Contenedor de metadatos y configuraciones del documento. <br>
+                            <b>Ejemplo:</b> &lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;/head&gt; <br>
+                            No se muestra en la página, solo contiene datos de configuración.
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;title&gt;</h5>
+                        <p>
+                            Define el título del documento, mostrado en la barra del navegador o pestaña. <br>
+                            <b>Ejemplo:</b> &lt;title&gt;Mi página web&lt;/title&gt; <br>
+                            Es importante para la accesibilidad y SEO.
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;base&gt;</h5>
+                        <p>
+                            Define la URL base para los enlaces relativos dentro del documento. <br>
+                            <b>Ejemplo:</b> &lt;base href="https://ejemplo.com/"&gt; <br>
+                            Solo puede haber un &lt;base&gt; por documento.
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;link&gt;</h5>
+                        <p>
+                            Establece relación con recursos externos, como hojas de estilo. <br>
+                            <b>Ejemplo:</b> &lt;link rel="stylesheet" href="estilos.css"&gt; <br>
+                            Se usa principalmente para cargar CSS o íconos.
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;meta&gt;</h5>
+                        <p>
+                            Define metadatos como charset, viewport o información para SEO. <br>
+                            <b>Ejemplo:</b> &lt;meta name="description" content="Página de ejemplo"&gt; <br>
+                            No se muestra en la página, pero es esencial para buscadores y navegadores.
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;style&gt;</h5>
+                        <p>
+                            Contiene estilos CSS internos aplicados al documento. <br>
+                            <b>Ejemplo:</b> &lt;style&gt; body { background: lightblue; } &lt;/style&gt; <br>
+                            Es mejor práctica usar CSS externo con &lt;link&gt;, pero puede usarse para estilos rápidos.
+                        </p>
+                    </div>
+
+                    <div class="col-6 text-center card">
+                        <h5>&lt;script&gt;</h5>
+                        <p>
+                            Permite incluir código JavaScript o enlazarlo desde un archivo externo. <br>
+                            <b>Ejemplo:</b> &lt;script src="app.js"&gt;&lt;/script&gt; <br>
+                            Puede colocarse en &lt;head&gt; o al final de &lt;body&gt; para mejorar el rendimiento.
+                        </p>
+                    </div>
+            </div>
+<!--Seccionamiento y estructura -->
+            <div class="row Gen-card-2nd" id="secc">
+            <h3>Seccionamiento y estructura</h3>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;body&gt;</h5>
+                <p>
+                    Contiene todo el contenido visible de la página web. <br>
+                    <b>Ejemplo:</b> &lt;body&gt; &lt;p&gt;Hola mundo&lt;/p&gt; &lt;/body&gt; <br>
+                    Solo puede haber un &lt;body&gt; por documento.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;header&gt;</h5>
+                <p>
+                    Representa el encabezado de una página o sección. <br>
+                    <b>Ejemplo:</b> &lt;header&gt;&lt;h1&gt;Título&lt;/h1&gt;&lt;/header&gt; <br>
+                    Suele contener logo, navegación o títulos.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;footer&gt;</h5>
+                <p>
+                    Define el pie de página de una página o sección. <br>
+                    <b>Ejemplo:</b> &lt;footer&gt;&lt;p&gt;© 2025 Mi sitio&lt;/p&gt;&lt;/footer&gt; <br>
+                    Normalmente incluye información de contacto, derechos o enlaces legales.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;main&gt;</h5>
+                <p>
+                    Contiene el contenido principal del documento. <br>
+                    <b>Ejemplo:</b> &lt;main&gt;&lt;article&gt;...&lt;/article&gt;&lt;/main&gt; <br>
+                    Solo puede haber un &lt;main&gt; por documento.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;section&gt;</h5>
+                <p>
+                    Representa una sección temática dentro de un documento. <br>
+                    <b>Ejemplo:</b> &lt;section&gt;&lt;h2&gt;Noticias&lt;/h2&gt;&lt;/section&gt; <br>
+                    Ideal para dividir el contenido en bloques con un propósito específico.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;article&gt;</h5>
+                <p>
+                    Define contenido independiente y reutilizable (ejemplo: una noticia o post). <br>
+                    <b>Ejemplo:</b> &lt;article&gt;&lt;h2&gt;Blog&lt;/h2&gt;&lt;/article&gt; <br>
+                    Puede compartirse de manera autónoma fuera de la página principal.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;aside&gt;</h5>
+                <p>
+                    Representa contenido tangencial, como barras laterales o notas. <br>
+                    <b>Ejemplo:</b> &lt;aside&gt;Publicidad&lt;/aside&gt; <br>
+                    No es parte del contenido principal, pero complementa la página.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;nav&gt;</h5>
+                <p>
+                    Define un bloque de enlaces de navegación. <br>
+                    <b>Ejemplo:</b> &lt;nav&gt;&lt;a href="#home"&gt;Inicio&lt;/a&gt;&lt;/nav&gt; <br>
+                    Generalmente se usa para menús de navegación principales o secundarios.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;h1&gt; ... &lt;h6&gt;</h5>
+                <p>
+                    Encabezados de distintos niveles, del más importante (&lt;h1&gt;) al menos importante (&lt;h6&gt;). <br>
+                    <b>Ejemplo:</b> &lt;h1&gt;Título principal&lt;/h1&gt; <br>
+                    Deben usarse jerárquicamente para mejorar accesibilidad y SEO.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;address&gt;</h5>
+                <p>
+                    Contiene información de contacto (persona, empresa, autor). <br>
+                    <b>Ejemplo:</b> &lt;address&gt;correo@ejemplo.com&lt;/address&gt; <br>
+                    Suele colocarse en el &lt;footer&gt;.
+                </p>
+            </div>
+            </div>
+<!--Contenido en linea y de texto -->
+            <div class="row Gen-card-3erd" id="CLT">
+            <h3>Contenido en línea y texto</h3>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;p&gt;</h5>
+                <p>
+                    Define un párrafo de texto. <br>
+                    <b>Ejemplo:</b> &lt;p&gt;Este es un párrafo.&lt;/p&gt; <br>
+                    Se separa automáticamente con márgenes en bloque.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;hr&gt;</h5>
+                <p>
+                    Representa un cambio temático en el contenido, usualmente mostrado como línea horizontal. <br>
+                    <b>Ejemplo:</b> &lt;hr&gt; <br>
+                    Se usa para separar secciones de manera visual.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;br&gt;</h5>
+                <p>
+                    Inserta un salto de línea dentro del texto. <br>
+                    <b>Ejemplo:</b> Hola&lt;br&gt;Mundo <br>
+                    No debe usarse en lugar de párrafos completos.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;pre&gt;</h5>
+                <p>
+                    Muestra texto preformateado, respetando espacios y saltos de línea. <br>
+                    <b>Ejemplo:</b> &lt;pre&gt;Texto   con espacios&lt;/pre&gt; <br>
+                    Útil para código o texto con formato fijo.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;blockquote&gt;</h5>
+                <p>
+                    Representa una cita en bloque de otra fuente. <br>
+                    <b>Ejemplo:</b> &lt;blockquote&gt;Cita larga&lt;/blockquote&gt; <br>
+                    Generalmente se muestra con sangría.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;ol&gt;</h5>
+                <p>
+                    Define una lista ordenada con números o letras. <br>
+                    <b>Ejemplo:</b> &lt;ol&gt;&lt;li&gt;Uno&lt;/li&gt;&lt;/ol&gt; <br>
+                    El orden de los elementos es relevante.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;ul&gt;</h5>
+                <p>
+                    Define una lista no ordenada con viñetas. <br>
+                    <b>Ejemplo:</b> &lt;ul&gt;&lt;li&gt;Elemento&lt;/li&gt;&lt;/ul&gt; <br>
+                    Se usa cuando el orden no importa.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;li&gt;</h5>
+                <p>
+                    Define un elemento dentro de una lista (&lt;ul&gt; o &lt;ol&gt;). <br>
+                    <b>Ejemplo:</b> &lt;li&gt;Primer ítem&lt;/li&gt; <br>
+                    Cada &lt;li&gt; representa un elemento de lista.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;dl&gt;</h5>
+                <p>
+                    Representa una lista de definiciones. <br>
+                    <b>Ejemplo:</b> &lt;dl&gt;&lt;dt&gt;HTML&lt;/dt&gt;&lt;dd&gt;Lenguaje de marcado&lt;/dd&gt;&lt;/dl&gt; <br>
+                    Útil para glosarios o descripciones.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;dt&gt;</h5>
+                <p>
+                    Define un término en una lista de definiciones. <br>
+                    <b>Ejemplo:</b> &lt;dt&gt;CSS&lt;/dt&gt; <br>
+                    Se acompaña de &lt;dd&gt; que explica el término.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;dd&gt;</h5>
+                <p>
+                    Proporciona la definición de un término en &lt;dl&gt;. <br>
+                    <b>Ejemplo:</b> &lt;dd&gt;Hojas de estilo en cascada&lt;/dd&gt; <br>
+                    Debe ir inmediatamente después de un &lt;dt&gt;.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;figure&gt;</h5>
+                <p>
+                    Contenedor para contenido gráfico o ilustrativo con su explicación. <br>
+                    <b>Ejemplo:</b> &lt;figure&gt;&lt;img src="img.png"&gt;&lt;/figure&gt; <br>
+                    Puede contener una imagen, gráfico, diagrama, etc.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;figcaption&gt;</h5>
+                <p>
+                    Define un pie de figura asociado a &lt;figure&gt;. <br>
+                    <b>Ejemplo:</b> &lt;figure&gt;&lt;img src="img.png"&gt;&lt;figcaption&gt;Descripción&lt;/figcaption&gt;&lt;/figure&gt; <br>
+                    Se usa para dar contexto o explicación a la figura.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;div&gt;</h5>
+                <p>
+                    Contenedor genérico de bloques. <br>
+                    <b>Ejemplo:</b> &lt;div class="contenedor"&gt;Contenido&lt;/div&gt; <br>
+                    No tiene significado semántico, se usa para agrupar y aplicar estilos.
+                </p>
+            </div>
+
+            <div class="col-6 text-center card">
+                <h5>&lt;span&gt;</h5>
+                <p>
+                    Contenedor genérico en línea. <br>
+                    <b>Ejemplo:</b> &lt;p&gt;Texto &lt;span class="rojo"&gt;resaltado&lt;/span&gt;&lt;/p&gt; <br>
+                    Se usa para aplicar estilos o manipulación con JS a partes del texto.
+                </p>
+            </div>
+            </div>
+
+<!--Texto semántico en linea -->
+            <div class="row Gen-card" id="TLS">
+                <h3>Texto en línea semántico</h3>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;a&gt;</h5>
+                    <p>
+                        Define un hipervínculo para navegar a otra página o recurso. <br>
+                        <b>Ejemplo:</b> &lt;a href="https://ejemplo.com"&gt;Visitar&lt;/a&gt; <br>
+                        Puede enlazar a sitios externos, internos o anclas en la misma página.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;em&gt;</h5>
+                    <p>
+                        Representa énfasis en el texto, usualmente mostrado en cursiva. <br>
+                        <b>Ejemplo:</b> &lt;em&gt;Importante&lt;/em&gt; <br>
+                        Aporta significado semántico de énfasis.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;strong&gt;</h5>
+                    <p>
+                        Indica importancia en el texto, usualmente mostrado en negrita. <br>
+                        <b>Ejemplo:</b> &lt;strong&gt;Atención&lt;/strong&gt; <br>
+                        Aporta significado semántico de relevancia.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;small&gt;</h5>
+                    <p>
+                        Representa texto secundario o aclaratorio. <br>
+                        <b>Ejemplo:</b> &lt;small&gt;Nota al pie&lt;/small&gt; <br>
+                        Se suele usar para advertencias o aclaraciones.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;cite&gt;</h5>
+                    <p>
+                        Define el título de una obra citada (libro, película, etc.). <br>
+                        <b>Ejemplo:</b> &lt;cite&gt;El Quijote&lt;/cite&gt; <br>
+                        Aporta contexto semántico sobre obras.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;q&gt;</h5>
+                    <p>
+                        Representa una cita corta en línea. <br>
+                        <b>Ejemplo:</b> &lt;q&gt;Ser o no ser&lt;/q&gt; <br>
+                        Generalmente los navegadores la muestran entre comillas.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;dfn&gt;</h5>
+                    <p>
+                        Marca un término que está siendo definido en el texto. <br>
+                        <b>Ejemplo:</b> &lt;dfn&gt;HTML&lt;/dfn&gt; es un lenguaje de marcado. <br>
+                        Útil para definiciones en documentos técnicos.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;abbr&gt;</h5>
+                    <p>
+                        Representa una abreviatura o acrónimo. <br>
+                        <b>Ejemplo:</b> &lt;abbr title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt; <br>
+                        El atributo <i>title</i> explica su significado completo.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;time&gt;</h5>
+                    <p>
+                        Representa una fecha u hora precisa. <br>
+                        <b>Ejemplo:</b> &lt;time datetime="2025-09-16"&gt;16 de septiembre&lt;/time&gt; <br>
+                        Útil para SEO y aplicaciones que procesan fechas.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;code&gt;</h5>
+                    <p>
+                        Muestra un fragmento de código fuente. <br>
+                        <b>Ejemplo:</b> &lt;code&gt;console.log("Hola")&lt;/code&gt; <br>
+                        Se representa en tipografía monoespaciada.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;var&gt;</h5>
+                    <p>
+                        Representa una variable en una expresión matemática o en código. <br>
+                        <b>Ejemplo:</b> El área es &lt;var&gt;r&lt;/var&gt;²π <br>
+                        Suele mostrarse en cursiva para diferenciarla del texto.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;samp&gt;</h5>
+                    <p>
+                        Indica la salida de un programa o sistema. <br>
+                        <b>Ejemplo:</b> &lt;samp&gt;Error 404&lt;/samp&gt; <br>
+                        Se muestra con fuente monoespaciada.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;kbd&gt;</h5>
+                    <p>
+                        Representa la entrada de teclado. <br>
+                        <b>Ejemplo:</b> Presiona &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt; <br>
+                        Se suele mostrar en estilo monoespaciado.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;sub&gt;</h5>
+                    <p>
+                        Texto en subíndice. <br>
+                        <b>Ejemplo:</b> H&lt;sub&gt;2&lt;/sub&gt;O <br>
+                        Se usa en fórmulas químicas o notas.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;sup&gt;</h5>
+                    <p>
+                        Texto en superíndice. <br>
+                        <b>Ejemplo:</b> x&lt;sup&gt;2&lt;/sup&gt; <br>
+                        Útil para exponentes o referencias.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;mark&gt;</h5>
+                    <p>
+                        Resalta texto como si estuviera marcado con resaltador. <br>
+                        <b>Ejemplo:</b> &lt;mark&gt;Importante&lt;/mark&gt; <br>
+                        Ideal para destacar palabras clave.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;b&gt;</h5>
+                    <p>
+                        Aplica un estilo en negrita al texto, sin énfasis semántico. <br>
+                        <b>Ejemplo:</b> &lt;b&gt;Negrita&lt;/b&gt; <br>
+                        Se usa para resaltar visualmente sin indicar importancia.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;i&gt;</h5>
+                    <p>
+                        Aplica un estilo en cursiva o alternativo. <br>
+                        <b>Ejemplo:</b> &lt;i&gt;Palabra extranjera&lt;/i&gt; <br>
+                        Se usa para nombres, pensamientos o términos técnicos.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;u&gt;</h5>
+                    <p>
+                        Subraya texto con valor semántico (ejemplo: nombres propios). <br>
+                        <b>Ejemplo:</b> &lt;u&gt;Nombre propio&lt;/u&gt; <br>
+                        Antes se usaba solo como estilo, ahora tiene un valor semántico específico.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;bdi&gt;</h5>
+                    <p>
+                        Aísla un fragmento de texto que puede tener una dirección distinta. <br>
+                        <b>Ejemplo:</b> &lt;bdi&gt;عربي&lt;/bdi&gt; <br>
+                        Útil en textos con escritura mixta (LTR y RTL).
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;bdo&gt;</h5>
+                    <p>
+                        Sobrescribe la dirección del texto. <br>
+                        <b>Ejemplo:</b> &lt;bdo dir="rtl"&gt;Texto&lt;/bdo&gt; <br>
+                        Se usa para controlar el flujo de escritura.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;ruby&gt;</h5>
+                    <p>
+                        Contenedor para anotaciones en caracteres (tipografía asiática). <br>
+                        <b>Ejemplo:</b> &lt;ruby&gt;漢&lt;rt&gt;Kan&lt;/rt&gt;&lt;/ruby&gt; <br>
+                        Usado en japonés, chino y otros idiomas.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;rt&gt;</h5>
+                    <p>
+                        Texto de anotación dentro de &lt;ruby&gt;. <br>
+                        <b>Ejemplo:</b> &lt;ruby&gt;日&lt;rt&gt;ni&lt;/rt&gt;&lt;/ruby&gt; <br>
+                        Muestra la pronunciación de un carácter.
+                    </p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;rp&gt;</h5>
+                    <p>
+                        Texto alternativo para navegadores que no soportan &lt;ruby&gt;. <br>
+                        <b>Ejemplo:</b> &lt;ruby&gt;漢&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;Kan&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt; <br>
+                        Normalmente muestra paréntesis alrededor de la anotación.
+                    </p>
+                </div>
+            </div>
+<!-- Multimedia e incrustación -->
+            <div class="row Gen-card-2nd" id="MULT">
+                <h3>Multimedia e incrustación</h3>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;img&gt;</h5>
+                    <p>Inserta imágenes en la página.<br>
+                    <b>Ejemplo:</b> &lt;img src="imagen.jpg" alt="Descripción"&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;picture&gt;</h5>
+                    <p>Permite usar imágenes adaptables según el tamaño de pantalla.<br>
+                    <b>Ejemplo:</b> 
+                    &lt;picture&gt;
+                    &lt;source srcset="imagen-grande.jpg" media="(min-width:800px)"&gt;
+                    &lt;img src="imagen-peque.jpg" alt="Descripción"&gt;
+                    &lt;/picture&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;source&gt;</h5>
+                    <p>Define archivos multimedia dentro de &lt;audio&gt;, &lt;video&gt; o &lt;picture&gt;.<br>
+                    <b>Ejemplo:</b> &lt;video controls&gt;&lt;source src="video.mp4" type="video/mp4"&gt;&lt;/video&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;audio&gt;</h5>
+                    <p>Reproduce archivos de audio.<br>
+                    <b>Ejemplo:</b> &lt;audio controls&gt;&lt;source src="audio.mp3" type="audio/mpeg"&gt;&lt;/audio&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;video&gt;</h5>
+                    <p>Reproduce archivos de video.<br>
+                    <b>Ejemplo:</b> &lt;video controls width="320"&gt;&lt;source src="video.mp4" type="video/mp4"&gt;&lt;/video&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;track&gt;</h5>
+                    <p>Proporciona subtítulos o descripciones a medios de audio o video.<br>
+                    <b>Ejemplo:</b> &lt;track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español"&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;iframe&gt;</h5>
+                    <p>Incrusta otro documento web dentro de la página.<br>
+                    <b>Ejemplo:</b> &lt;iframe src="pagina.html" width="600" height="400"&gt;&lt;/iframe&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;embed&gt;</h5>
+                    <p>Incrusta contenido externo, como plugins o multimedia.<br>
+                    <b>Ejemplo:</b> &lt;embed src="archivo.pdf" width="500" height="375"&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;object&gt;</h5>
+                    <p>Incrusta objetos, como documentos, multimedia o aplicaciones.<br>
+                    <b>Ejemplo:</b> &lt;object data="archivo.pdf" width="500" height="375"&gt;&lt;/object&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;param&gt;</h5>
+                    <p>Define parámetros para objetos incrustados con &lt;object&gt;.<br>
+                    <b>Ejemplo:</b> &lt;object data="video.swf"&gt;&lt;param name="autoplay" value="true"&gt;&lt;/object&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;canvas&gt;</h5>
+                    <p>Permite dibujar gráficos y animaciones mediante JavaScript.<br>
+                    <b>Ejemplo:</b> &lt;canvas id="miCanvas" width="400" height="200"&gt;&lt;/canvas&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;svg&gt;</h5>
+                    <p>Crear gráficos vectoriales escalables directamente en HTML.<br>
+                    <b>Ejemplo:</b> &lt;svg width="100" height="100"&gt;&lt;circle cx="50" cy="50" r="40" fill="red"/&gt;&lt;/svg&gt;</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;math&gt;</h5>
+                    <p>Permite mostrar fórmulas y expresiones matemáticas (MathML).<br>
+                    <b>Ejemplo:</b> &lt;math&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;</p>
+                </div>
+
+            </div>
+ <!-- Tablas -->
+            <div class="row Gen-card-3erd" id="TABS">
+                <h3>Tablas</h3>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;table&gt;</h5>
+                    <p>Define una tabla para organizar datos en filas y columnas.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;table&gt;...&lt;/table&gt;<br>
+                    Debe contener filas (&lt;tr&gt;) y celdas (&lt;td&gt; o &lt;th&gt;).</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;caption&gt;</h5>
+                    <p>Agrega un título descriptivo a la tabla.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;caption&gt;Lista de Productos&lt;/caption&gt;<br>
+                    Se coloca inmediatamente después de la etiqueta &lt;table&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;colgroup&gt;</h5>
+                    <p>Define un grupo de columnas dentro de una tabla para aplicar estilos.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;colgroup&gt;&lt;col span="2" style="background:lightgray"&gt;&lt;/colgroup&gt;<br>
+                    Se coloca antes de &lt;thead&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;col&gt;</h5>
+                    <p>Especifica propiedades de una columna o grupo de columnas.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;col style="width:50%"&gt;<br>
+                    Se usa dentro de &lt;colgroup&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;thead&gt;</h5>
+                    <p>Encabezado de la tabla, contiene las filas con títulos de columna.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;<br>
+                    Se coloca antes de &lt;tbody&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;tbody&gt;</h5>
+                    <p>Cuerpo de la tabla, contiene las filas de datos.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Juan&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;<br>
+                    Puede usarse varias veces en una tabla grande.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;tfoot&gt;</h5>
+                    <p>Pie de tabla, contiene filas con información resumen.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;<br>
+                    Se coloca después de &lt;tbody&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;tr&gt;</h5>
+                    <p>Define una fila en una tabla.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;tr&gt;&lt;td&gt;Dato1&lt;/td&gt;&lt;/tr&gt;<br>
+                    Se utiliza dentro de &lt;thead&gt;, &lt;tbody&gt; o &lt;tfoot&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;th&gt;</h5>
+                    <p>Celda de encabezado en una tabla.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;th&gt;Nombre&lt;/th&gt;<br>
+                    Por defecto aparece en negrita y centrado.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;td&gt;</h5>
+                    <p>Celda de datos en una tabla.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;td&gt;Juan&lt;/td&gt;<br>
+                    Se coloca dentro de una fila (&lt;tr&gt;).</p>
+                </div>
+            </div>
+ <!-- Formularios -->
+            <div class="row Gen-card" id="FORM">
+                <h3>Formularios</h3>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;form&gt;</h5>
+                    <p>Define un formulario interactivo para recopilar datos del usuario.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;form action="procesar.php" method="post"&gt;...&lt;/form&gt;<br>
+                    Puede contener inputs, botones y otros elementos de entrada.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;input&gt;</h5>
+                    <p>Campo de entrada de datos en un formulario.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;input type="text" name="usuario"&gt;<br>
+                    Puede tener muchos tipos: text, password, checkbox, radio, etc.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;textarea&gt;</h5>
+                    <p>Área de texto de varias líneas para ingresar contenido.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;textarea name="mensaje"&gt;Escribe aquí...&lt;/textarea&gt;<br>
+                    Útil para comentarios o mensajes largos.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;button&gt;</h5>
+                    <p>Botón en un formulario o página.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;button type="submit"&gt;Enviar&lt;/button&gt;<br>
+                    Puede tener los tipos: submit, reset o button.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;select&gt;</h5>
+                    <p>Lista desplegable para elegir una opción.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;select name="pais"&gt;&lt;option&gt;México&lt;/option&gt;&lt;/select&gt;<br>
+                    Puede contener &lt;option&gt; y &lt;optgroup&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;option&gt;</h5>
+                    <p>Opción dentro de un menú desplegable (&lt;select&gt;).<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;option value="mx"&gt;México&lt;/option&gt;<br>
+                    Puede marcarse como seleccionada con el atributo <i>selected</i>.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;optgroup&gt;</h5>
+                    <p>Grupo de opciones dentro de un &lt;select&gt;.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;optgroup label="América"&gt;&lt;option&gt;Chile&lt;/option&gt;&lt;/optgroup&gt;<br>
+                    Se usa para organizar listas extensas.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;label&gt;</h5>
+                    <p>Etiqueta para un campo de formulario.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;label for="usuario"&gt;Nombre:&lt;/label&gt;<br>
+                    Asociar con el atributo <i>for</i> mejora la accesibilidad.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;fieldset&gt;</h5>
+                    <p>Agrupa campos relacionados dentro de un formulario.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;fieldset&gt;...&lt;/fieldset&gt;<br>
+                    Se suele acompañar con &lt;legend&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;legend&gt;</h5>
+                    <p>Define un título o leyenda para un grupo de campos (&lt;fieldset&gt;).<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;legend&gt;Información personal&lt;/legend&gt;<br>
+                    Mejora la organización y accesibilidad del formulario.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;datalist&gt;</h5>
+                    <p>Lista de valores sugeridos para un campo de entrada (&lt;input&gt;).<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;input list="navegadores"&gt; 
+                    &lt;datalist id="navegadores"&gt;
+                    &lt;option value="Chrome"&gt;
+                    &lt;/datalist&gt;<br>
+                    Permite autocompletar opciones.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;output&gt;</h5>
+                    <p>Muestra el resultado de un cálculo en un formulario.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;output name="resultado"&gt;10&lt;/output&gt;<br>
+                    Puede actualizarse dinámicamente con JavaScript.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;progress&gt;</h5>
+                    <p>Barra de progreso que muestra el avance de una tarea.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;progress value="70" max="100"&gt;&lt;/progress&gt;<br>
+                    Útil para cargas o descargas.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;meter&gt;</h5>
+                    <p>Representa un valor escalar en un rango conocido.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;meter value="0.7" min="0" max="1"&gt;70%&lt;/meter&gt;<br>
+                    Se usa para valores medibles (ej. puntuación, nivel).</p>
+                </div>
+            </div>
+ <!--  Scripting y APIs -->
+            <div class="row Gen-card-2nd" id="SCAP">
+                <h3>Scripting y APIs</h3>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;noscript&gt;</h5>
+                    <p>Contenido alternativo que se muestra si JavaScript está deshabilitado en el navegador.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;noscript&gt;Por favor activa JavaScript para usar esta página.&lt;/noscript&gt;<br>
+                    Útil para accesibilidad y soporte en navegadores antiguos.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;template&gt;</h5>
+                    <p>Define un fragmento de contenido HTML reutilizable que no se renderiza al cargar la página.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;template id="card"&gt;
+                    &lt;div class="item"&gt;...&lt;/div&gt;
+                    &lt;/template&gt;<br>
+                    Se inserta dinámicamente con JavaScript.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;slot&gt;</h5>
+                    <p>Punto de inserción para contenido en <i>Web Components</i>.<br>
+                    <b>Ejemplo:</b> 
+                    <br>&lt;slot name="titulo"&gt;Título por defecto&lt;/slot&gt;<br>
+                    Permite personalizar contenido dentro de componentes reutilizables.</p>
+                </div>
+            </div>
+ <!-- Etiquetas obsoletas / deprecadas -->
+            <div class="row Gen-card-3erd" id="ETOBS">
+                <h3>Etiquetas obsoletas / deprecadas</h3>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;acronym&gt;</h5>
+                    <p>Definía acrónimos. <br>
+                    <b>Ejemplo:</b> &lt;acronym title="World Health Organization"&gt;WHO&lt;/acronym&gt;<br>
+                    Reemplazada por &lt;abbr&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;applet&gt;</h5>
+                    <p>Insertaba applets de Java. <br>
+                    <b>Ejemplo:</b> &lt;applet code="miApplet.class"&gt;&lt;/applet&gt;<br>
+                    Reemplazada por &lt;object&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;big&gt;</h5>
+                    <p>Mostraba texto más grande. <br>
+                    <b>Ejemplo:</b> &lt;big&gt;Texto grande&lt;/big&gt;<br>
+                    Reemplazado por CSS (font-size).</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;center&gt;</h5>
+                    <p>Centraba el contenido. <br>
+                    <b>Ejemplo:</b> &lt;center&gt;Texto centrado&lt;/center&gt;<br>
+                    Reemplazado por CSS (text-align: center).</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;dir&gt;</h5>
+                    <p>Lista de directorios. <br>
+                    <b>Ejemplo:</b> &lt;dir&gt;&lt;li&gt;Archivo&lt;/li&gt;&lt;/dir&gt;<br>
+                    Reemplazado por &lt;ul&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;font&gt;</h5>
+                    <p>Definía fuente, color y tamaño de texto. <br>
+                    <b>Ejemplo:</b> &lt;font color="red"&gt;Texto&lt;/font&gt;<br>
+                    Reemplazado por CSS.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;frame&gt;</h5>
+                    <p>Definía un marco dentro de un frameset. <br>
+                    <b>Ejemplo:</b> &lt;frame src="pagina.html"&gt;<br>
+                    Obsoleto, reemplazado por &lt;iframe&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;frameset&gt;</h5>
+                    <p>Definía un conjunto de marcos. <br>
+                    <b>Ejemplo:</b> &lt;frameset cols="50%,50%"&gt;...&lt;/frameset&gt;<br>
+                    Reemplazado por &lt;iframe&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;noframes&gt;</h5>
+                    <p>Contenido alternativo si el navegador no soportaba frames. <br>
+                    <b>Ejemplo:</b> &lt;noframes&gt;Tu navegador no soporta frames&lt;/noframes&gt;<br>
+                    Ya no tiene sentido en HTML5.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;strike&gt;</h5>
+                    <p>Texto tachado. <br>
+                    <b>Ejemplo:</b> &lt;strike&gt;Texto&lt;/strike&gt;<br>
+                    Reemplazado por &lt;s&gt; o CSS (text-decoration).</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;tt&gt;</h5>
+                    <p>Texto monoespaciado (teletipo). <br>
+                    <b>Ejemplo:</b> &lt;tt&gt;Código&lt;/tt&gt;<br>
+                    Reemplazado por &lt;code&gt; o CSS.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;u&gt; (versión antigua)</h5>
+                    <p>Subrayaba texto sin valor semántico. <br>
+                    <b>Ejemplo:</b> &lt;u&gt;Subrayado&lt;/u&gt;<br>
+                    Ahora tiene un nuevo uso semántico en HTML5.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;xmp&gt;</h5>
+                    <p>Mostraba texto preformateado. <br>
+                    <b>Ejemplo:</b> &lt;xmp&gt;Código&lt;/xmp&gt;<br>
+                    Reemplazado por &lt;pre&gt;&lt;code&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;marquee&gt;</h5>
+                    <p>Texto en movimiento (desplazamiento automático). <br>
+                    <b>Ejemplo:</b> &lt;marquee&gt;Texto en movimiento&lt;/marquee&gt;<br>
+                    Nunca fue estándar, obsoleto.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;blink&gt;</h5>
+                    <p>Texto parpadeante (solo Netscape). <br>
+                    <b>Ejemplo:</b> &lt;blink&gt;Texto&lt;/blink&gt;<br>
+                    Nunca fue estándar, totalmente obsoleto.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;isindex&gt;</h5>
+                    <p>Campo de búsqueda en documento. <br>
+                    <b>Ejemplo:</b> &lt;isindex prompt="Buscar"&gt;<br>
+                    Obsoleto, ya lo cubre &lt;form&gt; + &lt;input&gt;.</p>
+                </div>
+
+                <div class="col-6 text-center card">
+                    <h5>&lt;rb&gt;</h5>
+                    <p>Parte del modelo Ruby en versiones antiguas. <br>
+                    <b>Ejemplo:</b> &lt;rb&gt;漢&lt;/rb&gt;<br>
+                    Obsoleto, reemplazado en el modelo moderno de Ruby.</p>
+                </div>
+            </div>
+
+    </section>
+<script src="main.js"></script>   
+</body>
+</html>

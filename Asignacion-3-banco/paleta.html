@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paletas Bancarias — Colores y Variantes</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+    body{background:#fafafa;color:#212121;padding:32px}
+
+    .container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:32px}
+    h2{color:#002B5C;margin-bottom:12px}
+
+    .palette{background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(2,6,23,0.06)}
+    .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+    .swatch{height:100px;border-radius:8px;padding:10px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;font-weight:700;box-shadow:0 6px 16px rgba(2,6,23,0.06)}
+    .swatch small{font-weight:600;opacity:0.9}
+
+    /* Colores */
+    .azul1{background:#002B5C}
+    .azul2{background:#1E3A6E}
+    .azul3{background:#3F5C9A}
+    .azul4{background:#A9C3E8;color:#111}
+
+    .verde1{background:#2E7D32}
+    .verde2{background:#4CAF50}
+    .verde3{background:#81C784;color:#111}
+    .verde4{background:#C8E6C9;color:#111}
+
+    .gris1{background:#212121}
+    .gris2{background:#9E9E9E}
+    .gris3{background:#E0E0E0;color:#111}
+    .gris4{background:#F5F5F5;color:#111}
+
+    .dorado1{background:#A78900}
+    .dorado2{background:#C5A100}
+    .dorado3{background:#E1C74F;color:#111}
+    .dorado4{background:#FFF9C4;color:#111}
+
+    .blanco1{background:#FFFFFF;color:#111;border:1px solid #ddd}
+    .blanco2{background:#FAFAFA;color:#111;border:1px solid #ddd}
+    .blanco3{background:#F0F0EB;color:#111;border:1px solid #ddd}
+    .blanco4{background:#EDEDED;color:#111;border:1px solid #ddd}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <section class="palette">
+      <h2>Paleta 1 — Azul Marino</h2>
+      <div class="swatches">
+        <div class="swatch azul1">Azul Marino<small>#002B5C</small></div>
+        <div class="swatch azul2">Azul Oscuro<small>#1E3A6E</small></div>
+        <div class="swatch azul3">Azul Medio<small>#3F5C9A</small></div>
+        <div class="swatch azul4">Azul Claro<small>#A9C3E8</small></div>
+      </div>
+    </section>
+
+    <section class="palette">
+      <h2>Paleta 2 — Verde Esmeralda</h2>
+      <div class="swatches">
+        <div class="swatch verde1">Verde Base<small>#2E7D32</small></div>
+        <div class="swatch verde2">Verde Medio<small>#4CAF50</small></div>
+        <div class="swatch verde3">Verde Claro<small>#81C784</small></div>
+        <div class="swatch verde4">Verde Pastel<small>#C8E6C9</small></div>
+      </div>
+    </section>
+
+    <section class="palette">
+      <h2>Paleta 3 — Grises Neutros</h2>
+      <div class="swatches">
+        <div class="swatch gris1">Gris Oscuro<small>#212121</small></div>
+        <div class="swatch gris2">Gris Medio<small>#9E9E9E</small></div>
+        <div class="swatch gris3">Gris Claro<small>#E0E0E0</small></div>
+        <div class="swatch gris4">Gris Muy Claro<small>#F5F5F5</small></div>
+      </div>
+    </section>
+
+    <section class="palette">
+      <h2>Paleta 4 — Dorados Premium</h2>
+      <div class="swatches">
+        <div class="swatch dorado1">Dorado Oscuro<small>#A78900</small></div>
+        <div class="swatch dorado2">Dorado Base<small>#C5A100</small></div>
+        <div class="swatch dorado3">Dorado Claro<small>#E1C74F</small></div>
+        <div class="swatch dorado4">Amarillo Pálido<small>#FFF9C4</small></div>
+      </div>
+    </section>
+
+    <section class="palette">
+      <h2>Paleta 5 — Blancos y Neutros</h2>
+      <div class="swatches">
+        <div class="swatch blanco1">Blanco Puro<small>#FFFFFF</small></div>
+        <div class="swatch blanco2">Blanco Roto<small>#FAFAFA</small></div>
+        <div class="swatch blanco3">Beige / Hueso<small>#F0F0EB</small></div>
+        <div class="swatch blanco4">Marfil Claro<small>#EDEDED</small></div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

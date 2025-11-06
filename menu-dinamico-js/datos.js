@@ -1,4 +1,3 @@
-// Archivo de datos en formato JavaScript (sin CORS, sin fetch)
 const datosMenu = {
   "menu": [
     {

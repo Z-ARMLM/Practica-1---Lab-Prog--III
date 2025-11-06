@@ -77,12 +77,10 @@ Submenu2,#sub2"></textarea>
 
     document.body.appendChild(section);
 
-    // mostrar textarea de submenús
     document.getElementById("tieneSubmenu").addEventListener("change", (e) => {
       document.getElementById("submenuContainer").style.display = e.target.checked ? "block" : "none";
     });
 
-    // agregar opción
     document.getElementById("agregar").addEventListener("click", () => {
       const nombre = document.getElementById("nombre").value.trim();
       const enlace = document.getElementById("enlace").value.trim();
@@ -121,7 +119,6 @@ Submenu2,#sub2"></textarea>
       document.getElementById("submenuContainer").style.display = "none";
     });
 
-    // eventos para cambio de vista
     document.getElementById("modoHorizontal").addEventListener("click", () => {
       menuContainer.classList.remove("vertical");
       menuContainer.classList.add("horizontal");
@@ -135,7 +132,6 @@ Submenu2,#sub2"></textarea>
     });
   }
 
-  // cargar datos
   const almacenado = localStorage.getItem("menuData");
   if (almacenado) {
     try { menuData = JSON.parse(almacenado); } catch {}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Salud Multipasos</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css"> 
+
+</head>
+<body class="min-vh-100 d-flex align-items-center justify-content-center p-4">
+
+     <div id="form-container" class="container cont bg-white shadow rounded-3 p-4 p-md-5 my-4" >
+        
+         <div class="logo-container">
+            <img src="MEDIA/LOGO.jpg" alt="Fairy Tale Hospital Logo">
+        </div>
+
+        <h1 class="display-6 fw-bold text-dark text-center mb-4">Registro de Persona y Salud</h1>
+        <p class="text-muted text-center mb-4">Completa los siguientes 5 pasos para registrar la información.</p>
+
+       
+         <div id="step-navigation" class="d-flex justify-content-between flex-wrap gap-2 mb-5">
+            <button type="button" onclick="jumpToPage(1)" id="nav-step-1" class="btn btn-sm flex-grow-1 btn-primary step-nav-button" data-step="1">Datos Personales</button>
+            <button type="button" onclick="jumpToPage(2)" id="nav-step-2" class="btn btn-sm flex-grow-1 btn-secondary step-nav-button" data-step="2">Familiares</button>
+            <button type="button" onclick="jumpToPage(3)" id="nav-step-3" class="btn btn-sm flex-grow-1 btn-secondary step-nav-button" data-step="3">Condiciones</button>
+            <button type="button" onclick="jumpToPage(4)" id="nav-step-4" class="btn btn-sm flex-grow-1 btn-secondary step-nav-button" data-step="4">Internamientos</button>
+            <button type="button" onclick="jumpToPage(5)" id="nav-step-5" class="btn btn-sm flex-grow-1 btn-secondary step-nav-button" data-step="5">Resumen</button>
+        </div>
+
+         <form id="multi-step-form" onsubmit="event.preventDefault();">
+
+             <div id="page-1" class="page space-y-3">
+                <h2 class="h4 text-primary border-bottom pb-2 mb-4">1. Datos Personales</h2>
+                <div class="row g-3">
+                     <div class="col-md-6">
+                        <label for="Nombres" class="form-label">Nombres <span class="text-danger">*</span></label>
+                        <input type="text" id="Nombres" name="Nombres" class="form-control rounded-3" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Apellidos" class="form-label">Apellidos <span class="text-danger">*</span></label>
+                        <input type="text" id="Apellidos" name="Apellidos" class="form-control rounded-3" required>
+                    </div>
+
+                     <div class="col-md-4">
+                        <label for="cedula" class="form-label">Cédula / ID</label>
+                        <input type="text" id="cedula" name="cedula" class="form-control rounded-3">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento <span class="text-danger">*</span></label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control rounded-3" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nacionalidad" class="form-label">Nacionalidad <span class="text-danger">*</span></label>
+                        <select id="nacionalidad" name="nacionalidad" class="form-select rounded-3" required>
+                            </select>
+                    </div>
+
+                     <div class="col-md-4">
+                        <label for="sexo" class="form-label">Sexo <span class="text-danger">*</span></label>
+                        <select id="sexo" name="sexo" class="form-select rounded-3" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="estadoCivil" class="form-label">Estado Civil <span class="text-danger">*</span></label>
+                        <select id="estadoCivil" name="estadoCivil" class="form-select rounded-3" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="Soltero">Soltero(a)</option>
+                            <option value="Casado">Casado(a)</option>
+                            <option value="Divorciado">Divorciado(a)</option>
+                            <option value="Viudo">Viudo(a)</option>
+                            <option value="UnionLibre">Unión Libre</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tipoSangre" class="form-label">Tipo de Sangre</label>
+                        <select id="tipoSangre" name="tipoSangre" class="form-select rounded-3">
+                            <option value="">-- Seleccionar --</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                     <div class="col-md-4">
+                        <label for="telefono1" class="form-label">Teléfono 1 <span class="text-danger">*</span></label>
+                        <input type="tel" id="telefono1" name="telefono1" class="form-control rounded-3" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="telefono2" class="form-label">Teléfono 2</label>
+                        <input type="tel" id="telefono2" name="telefono2" class="form-control rounded-3">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="correoElectronico" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="correoElectronico" name="correoElectronico" class="form-control rounded-3">
+                    </div>
+                </div>
+
+                 <div class="mt-4 border p-3 rounded-3 bg-light">
+                    <h5 class="text-secondary border-bottom pb-2 mb-3">Información Laboral</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="ocupacion" class="form-label">Ocupación</label>
+                            <input type="text" id="ocupacion" name="ocupacion" class="form-control rounded-3">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="empresa" class="form-label">Empresa donde trabaja</label>
+                            <input type="text" id="empresa" name="empresa" class="form-control rounded-3">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="telefonoEmpresa" class="form-label">Teléfono de la empresa</label>
+                            <input type="tel" id="telefonoEmpresa" name="telefonoEmpresa" class="form-control rounded-3">
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="mt-4 border p-3 rounded-3 bg-light">
+                    <h5 class="text-danger border-bottom pb-2 mb-3">Contacto de Emergencia <span class="text-danger">*</span></h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="emergenciaNombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                            <input type="text" id="emergenciaNombre" name="emergenciaNombre" class="form-control rounded-3" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="emergenciaTelefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
+                            <input type="tel" id="emergenciaTelefono" name="emergenciaTelefono" class="form-control rounded-3" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="emergenciaParentesco" class="form-label">Parentesco <span class="text-danger">*</span></label>
+                            <select id="emergenciaParentesco" name="emergenciaParentesco" class="form-select rounded-3" required>
+                                <option value="">-- Seleccionar --</option>
+                                <option value="Padre">Padre/Madre</option>
+                                <option value="Hijo/a">Hijo/a</option>
+                                <option value="Conyuge">Cónyuge</option>
+                                <option value="Hermano/a">Hermano/a</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="mt-4">
+                    <h5 class="text-secondary border-bottom pb-2 mb-3">Detalle de Dirección <span class="text-danger">*</span></h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="ciudad" class="form-label">Provincia / Ciudad <span class="text-danger">*</span></label>
+                            <select id="ciudad" name="ciudad" class="form-select rounded-3" required onchange="toggleForeignCity(this.value)">
+                                </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="sector" class="form-label">Sector <span class="text-danger">*</span></label>
+                            <input type="text" id="sector" name="sector" class="form-control rounded-3" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="calle" class="form-label">Calle / No. Casa <span class="text-danger">*</span></label>
+                            <input type="text" id="calle" name="calle" class="form-control rounded-3" required>
+                        </div>
+                        <div class="col-12 for " id="foreignCityInput">
+                            <label for="ciudadExtranjera" class="form-label text-info">Especifique Ciudad/País Extranjero <span class="text-danger">*</span></label>
+                            <input type="text" id="ciudadExtranjera" name="ciudadExtranjera" class="form-control rounded-3">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-end pt-3">
+                    <button type="button" onclick="nextPage()" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                        Siguiente <span aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+             <div id="page-2" class="page space-y-3 d-none">
+                <h2 class="h4 text-primary border-bottom pb-2 mb-4">2. Familiares</h2>
+                
+                 <div class="row g-3 border p-4 rounded-3 bg-light mb-4">
+                    <div class="col-md-4">
+                        <input type="text" id="familiar-nombre" placeholder="Nombre Completo" class="form-control rounded-3">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="familiar-parentesco" class="form-select rounded-3">
+                            <option value="">-- Seleccionar Parentesco --</option>
+                            <option value="Padre">Padre/Madre</option>
+                            <option value="Hijo/a">Hijo/a</option>
+                            <option value="Hermano/a">Hermano/a</option>
+                            <option value="Conyuge">Cónyuge</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" id="familiar-edad" placeholder="Edad" min="1" max="120" class="form-control rounded-3">
+                    </div>
+                    <div class="col-12">
+                        <button type="button" onclick="addFamiliar()" class="btn btn-success w-100 rounded-3 shadow-sm correct">
+                            <svg class="me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Añadir Familiar
+                        </button>
+                    </div>
+                </div>
+
+             <div id="familiares-list" class="space-y-3">
+                    <p class="text-muted small p-3 border border-2 border-dashed rounded-3 text-center">No se han añadido familiares.</p>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4 pt-3">
+                    <button type="button" onclick="prevPage()" class="btn btn-secondary btn-lg rounded-3 shadow-sm">
+                        <span aria-hidden="true">&larr;</span> Anterior
+                    </button>
+                    <button type="button" onclick="nextPage()" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                        Siguiente <span aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="page-3" class="page space-y-3 d-none">
+                <h2 class="h4 text-primary border-bottom pb-2 mb-4">3. Condiciones de Salud</h2>
+
+                <div class="form-check form-switch mb-4 p-3 bg-info-subtle border border-info rounded-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="condicionesNegadas" onclick="toggleCondicionesForm()">
+                    <label class="form-check-label fw-bold text-info" for="condicionesNegadas">Marcar si NO presenta condiciones pre-existentes de salud.</label>
+                </div>
+
+                <div id="condiciones-form-container">
+                    <div class="row g-3 border p-4 rounded-3 bg-light mb-4">
+                        <div class="col-12">
+                            <input type="text" id="condicion-nombre" placeholder="Nombre de la Enfermedad (Ej: Hipertensión)" class="form-control rounded-3" required>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="number" id="condicion-tiempo" placeholder="Tiempo (Años)" min="0" class="form-control rounded-3">
+                        </div>
+                        <div class="col-md-8">
+                            <textarea id="condicion-detalle" placeholder="Detalle y Medicamentos (Mínimo un detalle)" rows="1" class="form-control rounded-3"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" onclick="addCondicion()" class="btn btn-success w-100 rounded-3 shadow-sm correct">
+                                <svg class="me-2"  fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Añadir Condición
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="condiciones-list" class="space-y-3">
+                    <p class="text-muted small p-3 border border-2 border-dashed rounded-3 text-center">No se han añadido condiciones de salud.</p>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4 pt-3">
+                    <button type="button" onclick="prevPage()" class="btn btn-secondary btn-lg rounded-3 shadow-sm">
+                        <span aria-hidden="true">&larr;</span> Anterior
+                    </button>
+                    <button type="button" onclick="nextPage()" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                        Siguiente <span aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="page-4" class="page space-y-3 d-none">
+                <h2 class="h4 text-primary border-bottom pb-2 mb-4">4. Internamientos Realizados</h2>
+                 
+               <div class="row g-3 border p-4 rounded-3 bg-light mb-4">
+                    <div class="col-md-4">
+                        <label class="form-label">Fecha</label>
+                        <input type="date" id="internamiento-fecha" class="form-control rounded-3">
+                    </div>
+                    <div class="col-md-8">
+                        <label class="form-label">Centro Médico</label>
+                        <input type="text" id="internamiento-centro" placeholder="Nombre del Centro Médico" class="form-control rounded-3">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Diagnóstico</label>
+                        <textarea id="internamiento-diagnostico" placeholder="Detalle del Diagnóstico" rows="1" class="form-control rounded-3"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" onclick="addInternamiento()" class="btn btn-success w-100 rounded-3 shadow-sm correct">
+                            <svg class="me-2"  fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Añadir Internamiento
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="internamientos-list" class="space-y-3">
+                    <p class="text-muted small p-3 border border-2 border-dashed rounded-3 text-center">No se han añadido internamientos.</p>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4 pt-3">
+                    <button type="button" onclick="prevPage()" class="btn btn-secondary btn-lg rounded-3 shadow-sm">
+                        <span aria-hidden="true">&larr;</span> Anterior
+                    </button>
+                    <button type="button" onclick="nextPage()" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                        Siguiente <span aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+           <div id="page-5" class="page space-y-3 d-none">
+                <h2 class="h4 text-primary border-bottom pb-2 mb-4">5. Resumen del Registro</h2>
+
+                <div id="data-display" class="bg-light p-4 rounded-3 shadow-sm">
+                    <p class="text-muted text-center">Cargando datos del registro...</p>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4 pt-3">
+                    <button type="button" onclick="prevPage()" class="btn btn-secondary btn-lg rounded-3 shadow-sm">
+                        <span aria-hidden="true">&larr;</span> Anterior
+                    </button>
+                    <button type="button" id="save-button" onclick="saveRecord()" class="btn btn-success btn-lg rounded-3 shadow correct">
+                        <svg class="me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+                        Guardar Registro
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+       <div id="records-section" class="mt-5 pt-4 border-top border-secondary-subtle">
+            <h2 class="h5 fw-bold text-secondary mb-3">Registros Guardados (Simulación de BD)</h2>
+            <div id="saved-records-list" class="space-y-3">
+                <p class="text-muted">No hay registros guardados aún.</p>
+            </div>
+        </div>
+
+        <div id="message-modal" class="modal fade" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 shadow">
+                    <div class="modal-header">
+                        <h5 id="modal-title" class="modal-title">Mensaje</h5>
+                        <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="modal-message" class="text-muted"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary rounded-3" onclick="closeModal()">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="main.js" ></script>
+</body>
+</html>

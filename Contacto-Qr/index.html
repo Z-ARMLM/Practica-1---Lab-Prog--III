@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contacto vCard QR (Cosmos Oscuro)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-4xl grid md:grid-cols-2 gap-8">
+
+        <div class="bg-[#1a1f2e] p-6 md:p-8 rounded-xl vcard-card border border-indigo-900/50">
+            <h1 class="text-3xl font-bold text-indigo-300 mb-6 border-b pb-2 border-indigo-900">
+                Datos del Contacto (Cosmos Digital)
+            </h1>
+            <form id="vcard-form" class="space-y-4">
+
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-300">Nombre Completo (*)</label>
+                    <input type="text" id="nombre" class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 input-dark" required>
+                </div>
+
+                <div>
+                    <label for="organizacion" class="block text-sm font-medium text-gray-300">Organización/Empresa</label>
+                    <input type="text" id="organizacion" class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 input-dark">
+                </div>
+
+                <div>
+                    <label for="puesto" class="block text-sm font-medium text-gray-300">Puesto/Título</label>
+                    <input type="text" id="puesto" class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 input-dark">
+                </div>
+
+                <div>
+                    <label for="telefono" class="block text-sm font-medium text-gray-300">Teléfono Móvil (*)</label>
+                    <input type="tel" id="telefono" class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 input-dark" required>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-300">Correo Electrónico</label>
+                    <input type="email" id="email" class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 input-dark">
+                </div>
+
+                <button type="submit" class="w-full mt-6 flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-xl text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400 focus:ring-offset-[#1a1f2e] btn-primary">
+                    <svg class="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    Generar Código QR Cósmico
+                </button>
+            </form>
+
+             <div id="error-message" class="mt-4 text-sm text-red-400 hidden">
+                Por favor, complete los campos obligatorios (Nombre Completo y Teléfono Móvil).
+            </div>
+        </div>
+
+        <div class="bg-[#1a1f2e] p-6 md:p-8 rounded-xl vcard-card flex flex-col items-center justify-center border border-indigo-900/50">
+            <h2 class="text-2xl font-semibold text-gray-300 mb-6">
+                Tu Código QR vCard
+            </h2>
+
+            <div id="qrcode" class="w-64 h-64 p-4 border-4 border-indigo-600/50 rounded-lg bg-white flex items-center justify-center text-gray-500 text-center qr-container">
+                <span class="text-gray-400">Ingresa los datos y presiona el botón para viajar por el cosmos digital.</span>
+            </div>
+
+            <p class="mt-4 text-center text-sm text-gray-400">
+                Al escanear, tu smartphone abrirá la aplicación de contactos automáticamente.
+            </p>
+        </div>
+    </div>
+
+<script src="main.js"></script>
+</body>
+</html>

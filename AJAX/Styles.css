@@ -1,0 +1,57 @@
+        :root {
+            --bg-page: #feffff;             /* Fondo de la página (Claro, solicitado) */
+            --bg-section-dark: #1e1e1e;     /* Fondo de la Navbar y Sección Principal (Oscuro, solicitado) */
+            --bg-footer-dark: #121212;      /* Fondo del Footer (Muy Oscuro) */
+            --text-dark: #edf6ff;           /* Texto oscuro para fondo claro */
+            --text-light:rgb(10, 11, 12)0;          /* Texto claro para fondo oscuro */
+            --acento-cyan: #00BCD4;        /* Azul Neón/Cian (Primario) */
+            --acento-naranja: #FF8C00;     /* Naranja (Secundario) */
+        }
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: var(--bg-section-dark) !important;
+            border-color: var(--acento-cyan) !important; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        }
+        .hero-section {
+            background-color: var(--bg-section-dark) !important;
+            border-color: var(--acento-cyan) !important;
+            color: var(--text-light);
+        }
+        .footer-dark {
+            background-color: var(--bg-footer-dark) !important;
+            color: #6c757d !important; /* Texto secundario para el footer */
+        }
+        .text-acento-cyan {
+            color: var(--acento-cyan) !important;
+        }
+        .text-acento-naranja {
+            color: var(--acento-naranja) !important;
+        }
+        .text-light-override {
+            color: var(--text-light) !important;
+        }
+        .text-secondary-dark {
+            color: #bdbdbd !important; /* Gris claro para texto secundario en fondo oscuro */
+        }
+        .navbar-brand {
+            color: var(--text-light) !important;
+        }
+        .code-block {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .code-key { color: #FFD700; }        /* Amarillo Dorado */
+        .code-string { color: #A9DC76; }     /* Verde Menta */
+        .code-number { color: #FF8C00; }     /* Naranja Suave */
+        .code-symbol { color: #00BCD4; }     /* Cian */

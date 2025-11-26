@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JALM SUMMARYS - Resumen AJAX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top shadow" data-bs-theme="dark">
+        <div class="container-fluid container-lg">
+            <a class="navbar-brand fs-3 fw-bolder" href="#">
+                JALM <span class="text-acento-cyan">SUMMARYS</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="container-lg my-5">
+
+        <section class="py-5 hero-section rounded-3 shadow-lg mb-5 border p-lg-5">
+            <h1 class="display-3 fw-bolder text-center text-light-override mb-4 border-bottom pb-3 border-secondary-dark">
+                <i class="bi bi-robot me-3 text-acento-cyan"></i> Resumen: AJAX (Asynchronous JavaScript and XML)
+            </h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-start">
+                    <img src="Media/logo.jpg" alt="logo">
+                    <h2 class="fs-3 fw-bold text-acento-cyan mt-4 mb-3">¿Qué es AJAX?</h2>
+                    <p class="fs-5 text-secondary-dark mb-4 lead">
+                        Ajax (Asynchronous JavaScript and XML) se refiere a un grupo de tecnologías que se utilizan para desarrollar aplicaciones web. 
+                        Al combinar estas tecnologías, las páginas web parece que son más receptivas puesto que los paquetes pequeños de datos se intercambian 
+                        con el servidor y las páginas web no se vuelven a cargar cada vez que un usuario realiza un cambio de entrada. Ajax permite que un usuario 
+                        de la aplicación web interactúe con una página web sin la interrupción que implica volver a cargar la página web. La interacción del sitio 
+                        web ocurre rápidamente sólo con partes de la página de recarga y renovación.
+                   </p>
+                    <p class="fs-5 text-secondary-dark mb-4 lead">
+                       AJAX no es un lenguaje de programación singular ni una tecnología, sino más bien una técnica de desarrollo web. Su nombre, Asynchronous 
+                        JavaScript and XML, define sus componentes originales y su propósito fundamental. El objetivo principal de AJAX es permitir que las aplicaciones 
+                        web realicen peticiones al servidor en segundo plano y procesen cualquier respuesta sin requerir una recarga completa de la página. Este proceso 
+                        es la base de la actualización parcial, permitiendo una interacción fluida.
+                    </p>
+
+                    <h2 class="fs-3 fw-bold text-acento-cyan mt-5 mb-3">Tecnologías Involucradas y Evolución</h2>
+                    <p class="text-light-override">
+                        AJAX no es un lenguaje singular, sino una combinación de tecnologías clave:
+                    </p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item bg-transparent text-light-override py-3 border-secondary border-opacity-25">
+                            <span class="text-acento-naranja fw-bold">XHTML/HTML y CSS:</span> Para la presentación de la información.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light-override py-3 border-secondary border-opacity-25">
+                            <span class="text-acento-naranja fw-bold">DOM (Document Object Model):</span> Para la interacción y la actualización dinámica de la información presentada.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light-override py-3 border-secondary border-opacity-25">
+                            <span class="text-acento-naranja fw-bold">XMLHttpRequest (XHR) o API fetch:</span> El objeto original y la interfaz moderna, respectivamente, para manipular los datos de forma asíncrona con el servidor.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light-override py-3 border-secondary border-opacity-25">
+                            <span class="text-acento-naranja fw-bold">JavaScript:</span> Visualiza y enlaza las solicitudes, procesa las respuestas y manipula el DOM.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light-override py-3 border-secondary border-opacity-25">
+                            <span class="text-acento-naranja fw-bold">JSON (o XML):</span> Formato de intercambio de datos. JSON ha reemplazado en gran medida a XML por ser más ligero y nativo de JavaScript.
+                        </li>
+                    </ul>
+
+                    <h2 class="fs-3 fw-bold text-acento-cyan mt-5 mb-3">Ventajas y Limitaciones</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="fs-4 fw-bold text-acento-naranja">Ventajas</h3>
+                            <ul class="list-unstyled">
+                                <li class="text-light-override mb-2"><i class="bi bi-speedometer2 me-2"></i>Mejora la Experiencia del Usuario (UX) por su rapidez.</li>
+                                <li class="text-light-override mb-2"><i class="bi bi-cloud-arrow-down me-2"></i>Reduce el Consumo de Ancho de Banda al transmitir solo datos.</li>
+                                <li class="text-light-override mb-2"><i class="bi bi-arrow-repeat me-2"></i>Permite Operaciones Asíncronas, evitando que la interfaz se congele.</li>
+                                <li class="text-light-override mb-2"><i class="bi bi-bounding-box me-2"></i>Facilita la Actualización Parcial de la Página.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="fs-4 fw-bold text-acento-naranja">Limitaciones</h3>
+                            <ul class="list-unstyled">
+                                <li class="text-light-override mb-2"><i class="bi bi-exclamation-triangle-fill me-2"></i>Problemas con el Historial/URL al no cambiar la dirección por defecto.</li>
+                                <li class="text-light-override mb-2"><i class="bi bi-search me-2"></i>Complicaciones Históricas de SEO para contenido dinámico.</li>
+                                <li class="text-light-override mb-2"><i class="bi bi-code-slash me-2"></i>Mayor Complejidad de Código para manejar la asincronía y errores.</li>
+                                <li class="text-light-override mb-2"><i class="bi bi-x-octagon-fill me-2"></i>Dependencia Total de JavaScript en el navegador del usuario.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h2 class="fs-3 fw-bold text-acento-cyan mt-5 mb-3">El Flujo de AJAX</h2>
+                    <p class="text-light-override">
+                        El proceso de una solicitud AJAX es asíncrono y se centra en la función de "Callback" o el manejo por "Promesas" para actualizar el DOM:
+                    </p>
+                    
+                    <div class="code-block">
+                        <p class="mb-1"><span class="code-symbol">// Ejemplo de Flujo de Datos Asíncrono (JSON)</span></p>
+                        <p class="mb-1"><span class="code-symbol">{</span></p>
+                        <p class="mb-1 ps-3"><span class="code-key">"proceso"</span><span class="code-symbol">: </span><span class="code-string">"Evento del Navegador (Ej: Clic)"</span><span class="code-symbol">,</span></p>
+                        <p class="mb-1 ps-3"><span class="code-key">"llamada"</span><span class="code-symbol">: </span><span class="code-string">"JavaScript (Crea un fetch o XHR)"</span><span class="code-symbol">,</span></p>
+                        <p class="mb-1 ps-3"><span class="code-key">"servidor"</span><span class="code-symbol">: </span><span class="code-string">"Servidor Web (Procesa la solicitud)"</span><span class="code-symbol">,</span></p>
+                        <p class="mb-1 ps-3"><span class="code-key">"respuesta"</span><span class="code-symbol">: </span><span class="code-string">"Respuesta del Servidor (Envía datos JSON)"</span><span class="code-symbol">,</span></p>
+                        <p class="mb-1 ps-3"><span class="code-key">"resultado_final"</span><span class="code-symbol">: </span><span class="code-string">"JavaScript (Actualiza el DOM)"</span></p>
+                        <p class="mb-0"><span class="code-symbol">}</span></p>
+                    </div>
+
+                <div class="mt-6 space-y-4">
+                    <h3 class="text-2xl font-semibold">Puntos Clave del Flujo:</h3>
+                    <ul class="list-disc list-inside space-y-2 text-base">
+                        <li><strong>Asíncrono:</strong> Este es el concepto más importante. "Asíncrono" significa que JavaScript no tiene que esperar a que el servidor responda. Envía la solicitud y sigue ejecutando otras tareas.</li>
+                        <li><strong>Función de Callback:</strong> Una vez que el servidor finalmente responde, se ejecuta una función específica (llamada "callback" o manejada por una "promesa") para procesar los datos y actualizar la página.</li>
+                        <li><strong>Actualización del DOM:</strong> En lugar de recargar toda la página, JavaScript usa el DOM (Modelo de Objetos del Documento) para encontrar el elemento HTML específico que necesita ser actualizado (como un <code>&lt;div&gt;</code> o un <code>&lt;span&gt;</code>) y cambia su contenido.</li>
+                    </ul>
+                </div>
+                    <p class="text-secondary-dark mt-4 fst-italic">
+                        Te invitamos a explorar nuestro contenido. El futuro ya está aquí.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-4 mt-5 footer-dark">
+        <p class="mb-0">
+            By Juan Armando Lopez Mendez
+        </p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

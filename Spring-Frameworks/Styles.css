@@ -1,0 +1,93 @@
+             :root {
+            --bg-page: #feffff;             /* Fondo de la página (Claro) */
+            --bg-section-dark: #1e1e1e;     /* Fondo de la Navbar y Sección Principal (Oscuro) */
+            --bg-footer-dark: #121212;      /* Fondo del Footer (Muy Oscuro) */
+            --text-dark: #212529;           /* Texto oscuro para fondo claro (Color de Bootstrap) */
+            --text-light: #ffffff;          /* Texto claro para fondo oscuro (Corregido a blanco) */
+            --acento-cyan: #00BCD4;        /* Azul Neón/Cian (Primario) */
+            --acento-naranja: #FF8C00;     /* Naranja (Secundario) */
+        }
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: var(--bg-section-dark) !important;
+            border-color: var(--acento-cyan) !important; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        }
+        .hero-section {
+            background-color: var(--bg-section-dark) !important;
+            border-color: var(--acento-cyan) !important;
+            color: var(--text-light);
+        }
+        .footer-dark {
+            background-color: var(--bg-footer-dark) !important;
+            color: #6c757d !important; /* Texto secundario para el footer */
+        }
+        .text-acento-cyan {
+            color: var(--acento-cyan) !important;
+        }
+        .text-acento-naranja {
+            color: var(--acento-naranja) !important;
+        }
+        .text-light-override {
+            color: var(--text-light) !important;
+        }
+        .text-secondary-dark {
+            color: #bdbdbd !important; /* Gris claro para texto secundario en fondo oscuro */
+        }
+        .navbar-brand {
+            color: var(--text-light) !important;
+        }
+        .code-block {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .code-key { color: #FFD700; }        /* Amarillo Dorado */
+        .code-string { color: #A9DC76; }     /* Verde Menta */
+        .code-number { color: #FF8C00; }     /* Naranja Suave */
+        .code-symbol { color: #00BCD4; }     /* Cian */
+
+        /* Estilos para las nuevas tarjetas de Hitos/Usos */
+        .highlight-card {
+            background-color: #2a2a2a; /* Fondo ligeramente más claro que la sección principal */
+            border-left: 5px solid var(--acento-cyan);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            height: 100%; /* Asegura que todas tengan la misma altura dentro del row */
+        }
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 189, 212, 0.2);
+        }
+        .highlight-card .card-title {
+            color: var(--acento-naranja);
+            font-weight: bold;
+        }
+        .highlight-card .card-subtitle {
+            color: var(--acento-cyan);
+            font-size: 1.1em;
+        }
+        
+        /* Nuevo estilo para los bloques de Ventajas y Desventajas */
+        .list-block {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: #2a2a2a; /* Fondo ligeramente más claro que la sección principal */
+            border-left: 4px solid var(--acento-cyan);
+            transition: background-color 0.2s;
+        }
+        .list-block:hover {
+            background-color: #333333;
+        }
+        .list-block strong {
+            color: var(--acento-naranja); /* Resalta el título de la ventaja/desventaja */
+        }

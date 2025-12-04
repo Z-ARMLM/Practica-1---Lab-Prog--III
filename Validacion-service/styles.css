@@ -1,0 +1,51 @@
+/* Definición de colores base y estilos personalizados */
+:root {
+    --dr-blue: #002868; /* Azul */
+    --dr-red: #A40404; /* Rojo */
+}
+
+body {
+    /* Fondo de degradado basado en la bandera */
+    background: linear-gradient(135deg, var(--dr-blue) 0%, var(--dr-blue) 50%, var(--dr-red) 50%, var(--dr-red) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem; /* Espacio superior */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.95); /* Tarjeta semi-transparente */
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+}
+
+.btn-primary {
+    background-color: var(--dr-red);
+    border-color: var(--dr-red);
+    font-weight: bold;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--dr-blue);
+    border-color: var(--dr-blue);
+}
+
+/* Estilo para los mensajes de alerta específicos */
+.alert-warning-custom {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+}

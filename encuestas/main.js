@@ -1,6 +1,6 @@
 
         const SUPABASE_URL = "https://fiirddumqcohrujduyij.supabase.co";
-        const SUPABASE_KEY = "TU_CLAVE_ANON_AQUI"; 
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpaXJkZHVtcWNvaHJ1amR1eWlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4ODgzNjksImV4cCI6MjA4MTQ2NDM2OX0.3n5cmwaHnv30UU_jlc1MsXoIOR-y0KOtOMbX4XZ3il8"; 
 
         const EMAILJS_PUBLIC_KEY = "H37aYCjH5v3EpiG3p"; 
         const EMAILJS_SERVICE_ID = "service_tl2wlew"; 

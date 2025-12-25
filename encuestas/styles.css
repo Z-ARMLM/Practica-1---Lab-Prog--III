@@ -1,4 +1,4 @@
-   body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .sidebar { min-height: 100vh; background: white; border-right: 1px solid #dee2e6; transition: all 0.3s; }
         .sidebar .nav-link { color: #6c757d; padding: 12px 20px; font-weight: 500; border-radius: 8px; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
         .sidebar .nav-link:hover { background-color: #f8f9fa; color: #0d6efd; }
@@ -13,6 +13,5 @@
         .view-section.active { display: block; }
         .form-floating > label { left: 0; }
         
-        /* Spinner overlay for loading */
         #loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column; }
- 
+  

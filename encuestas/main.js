@@ -413,11 +413,12 @@
                 document.getElementById('btn-submit-final').disabled = false; 
             },
             
-            submitVote: async function() {
+        submitVote: async function() {
                 document.getElementById('btn-submit-final').disabled = true;
-                document.getElementById('btn-submit-final').innerHTML = '<span class="spinner-border spinner-border-sm"></span> Enviando...';
+                document.getElementById('btn-submit-final').innerHTML = 'Enviando...';
 
                 try {
+                    // Guardar VOTOS individualmente en Supabase
                     const votePromises = Object.entries(this.state.selections).map(([qid, opt]) => {
                         return supabaseApi.insert('votos', { 
                             questionId: qid, 
@@ -426,28 +427,31 @@
                         });
                     });
 
+                    // Esperar a que se guarden todos
                     const results = await Promise.all(votePromises);
                     
-                    const allSuccess = results.every(r => r === true);
-
-                    if (!allSuccess) {
-                        throw new Error("Error al guardar algunos votos en la nube.");
+                    // Verificar si hubo algún error en los inserts
+                    const errors = results.filter(r => r.error);
+                    if (errors.length > 0) {
+                        throw new Error(`Error guardando votos: ${errors[0].error}`);
                     }
 
+                    // Actualizar status del participante
                     if(this.state.currentUser.id) {
                         await supabaseApi.update('participantes', this.state.currentUser.id, {hasVoted: true});
                     }
-
+                    
+                    // Actualizar local
                     const idx = this.data.participants.findIndex(p => p.email === this.state.currentUser.email);
                     if(idx !== -1) this.data.participants[idx].hasVoted = true;
                     
                     await this.syncData(); 
-                    alert("Voto depositado correctamente. Gracias por su participación.");
+                    alert("Voto registrado correctamente.");
                     this.router('landing');
 
                 } catch (error) {
                     console.error(error);
-                    alert("Hubo un problema registrando el voto. Por favor intente de nuevo.");
+                    alert("Error al votar: " + error.message);
                     document.getElementById('btn-submit-final').disabled = false;
                     document.getElementById('btn-submit-final').innerHTML = 'DEPOSITAR VOTO';
                 }

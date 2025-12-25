@@ -1,22 +1,15 @@
 
-        const SUPABASE_URL = "https://fiirddumqcohrujduyij.supabase.co";
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpaXJkZHVtcWNvaHJ1amR1eWlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4ODgzNjksImV4cCI6MjA4MTQ2NDM2OX0.3n5cmwaHnv30UU_jlc1MsXoIOR-y0KOtOMbX4XZ3il8"; // <-- Poner clave ANON
+       //CONFIGURACION PARA GUARDADO DE DATOS EN SUPABASE
+       const SUPABASE_URL = "https://fiirddumqcohrujduyij.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpaXJkZHVtcWNvaHJ1amR1eWlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4ODgzNjksImV4cCI6MjA4MTQ2NDM2OX0.3n5cmwaHnv30UU_jlc1MsXoIOR-y0KOtOMbX4XZ3il8"; 
+        //CONFIGURACION PARA ENVIO DE CORREOS
         const EMAILJS_PUBLIC_KEY = "H37aYCjH5v3EpiG3p"; 
         const EMAILJS_SERVICE_ID = "service_tl2wlew"; 
         const EMAILJS_TEMPLATE_ID = "template_1xqiodq"; 
 
         const INITIAL_DATA = {
             participants: [
-                {email:"admin@test.com", 
-                    nombre:"Juan", 
-                    apellido:"Admin", 
-                    sexo:"Masculino", 
-                    edad:30, 
-                    fechaNacimiento:"1993-01-01", 
-                    nacionalidad:"República Dominicana", 
-                    ciudad:"Santo Domingo", 
-                    direccion:"Calle 1", 
-                    telefono:"809-555-5555", hasVoted:false}
+                {email:"admin@test.com", nombre:"Juan", apellido:"Admin", sexo:"Masculino", edad:30, fechaNacimiento:"1993-01-01", nacionalidad:"República Dominicana", ciudad:"Santo Domingo", direccion:"Calle 1", telefono:"809-555-5555", hasVoted:false}
             ],
             surveys: [],
             votes: []
@@ -43,6 +36,9 @@
                     return res.ok;
                 } catch(e) { return false; }
             },
+            async insertParticipant(data) { return this.insert('participantes', data); },
+            async getParticipants() { return this.fetchAll('participantes').then(d => ({ data: d })); },
+            
             async update(table, id, data) {
                  try {
                     const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`, {
@@ -64,26 +60,25 @@
             }
         };
 
-        // --- Logica ---
+        // ---logica ---
         const app = {
             data: { participants: [], surveys: [], votes: [] },
             state: { currentUser: null, draftQuestions: [], editingId: null, assignId: null, tempAssign: new Set(), selections: {}, previousView: 'landing' },
 
             init: async function() {
+                // 1. Cargar datos 
                 this.data.participants = JSON.parse(localStorage.getItem('e_participants')) || INITIAL_DATA.participants;
                 this.data.surveys = JSON.parse(localStorage.getItem('e_surveys')) || INITIAL_DATA.surveys;
                 this.data.votes = JSON.parse(localStorage.getItem('e_votes')) || INITIAL_DATA.votes;
                 
                 if(window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
 
+                // Cargar desde Supabase
                 if(SUPABASE_KEY.startsWith("ey")) {
                     document.getElementById('db-status').innerHTML = '<i class="bi bi-cloud-check"></i> Conectado';
                     document.getElementById('db-status').className = "badge bg-success";
                     
-                    const p = await supabaseApi.fetchAll('participantes');
-                    if(p) this.data.participants = p;
-                    const s = await supabaseApi.fetchAll('encuestas');
-                    if(s) this.data.surveys = s;
+                    await this.syncData(); 
                 }
                 
                 this.save(); 
@@ -100,6 +95,18 @@
                 } else {
                     this.router('landing');
                 }
+            },
+            
+            syncData: async function() {
+                const p = await supabaseApi.fetchAll('participantes');
+                if(p) this.data.participants = p;
+                
+                const s = await supabaseApi.fetchAll('encuestas');
+                if(s) this.data.surveys = s;
+           
+                
+                this.save();
+                this.renderDashboard(); // Refrescar vista 
             },
 
             save: function() {
@@ -132,6 +139,7 @@
 
             goToLanding: function() { this.router('landing'); },
 
+            // --- PARTICIPANTES ---
             handleSaveParticipant: async function(e) {
                 e.preventDefault();
                 const email = document.getElementById('p-email').value;
@@ -143,13 +151,14 @@
                     ciudad: document.getElementById('p-ciudad').value, direccion: document.getElementById('p-direccion').value,
                     telefono: document.getElementById('p-telefono').value, hasVoted: false
                 };
-                if (originalEmail) {
+
+                if (originalEmail) { // Actualizar
                      const localP = this.data.participants.find(x => x.email === originalEmail);
                      if(localP && localP.id) await supabaseApi.update('participantes', localP.id, pData);
                      const idx = this.data.participants.findIndex(x => x.email === originalEmail);
                      this.data.participants[idx] = { ...this.data.participants[idx], ...pData };
                      alert("Actualizado");
-                } else {
+                } else { // crear
                     if(this.data.participants.find(x => x.email === email)) return alert("Correo ya existe");
                     await supabaseApi.insert('participantes', pData);
                     const fresh = await supabaseApi.fetchAll('participantes');
@@ -205,12 +214,11 @@
                 tbody.innerHTML = '';
                 document.getElementById('p-count').innerText = `${this.data.participants.length} registros`;
                 this.data.participants.forEach(p => {
-                    tbody.innerHTML += `<tr><td><div class="fw-bold text-dark">${p.nombre} ${p.apellido||''}</div><div class="small text-primary">${p.email}</div></td><td class="small text-muted"><div>${p.sexo} • ${p.edad||'?'} años</div><div>${p.nacionalidad}</div></td><td class="small text-muted"><div>${p.ciudad}</div><div class="text-truncate" style="max-width:150px">${p.direccion||''}</div></td><td class="text-end"><button onclick="app.editParticipant('${p.email}')" class="btn btn-sm btn-outline-secondary me-1"><i class="bi bi-pencil"></i>Editar</button>
-                    <button onclick="app.deleteParticipant('${p.email}')" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i>Eliminar</button></td></tr>`;
+                    tbody.innerHTML += `<tr><td><div class="fw-bold text-dark">${p.nombre} ${p.apellido||''}</div><div class="small text-primary">${p.email}</div></td><td class="small text-muted"><div>${p.sexo} • ${p.edad||'?'} años</div><div>${p.nacionalidad}</div></td><td class="small text-muted"><div>${p.ciudad}</div><div class="text-truncate" style="max-width:150px">${p.direccion||''}</div></td><td class="text-end"><button onclick="app.editParticipant('${p.email}')" class="btn btn-sm btn-outline-secondary me-1"><i class="bi bi-pencil"></i></button><button onclick="app.deleteParticipant('${p.email}')" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></td></tr>`;
                 });
             },
 
-            // --- SURVEYS ---
+            // --- ENCUESTAS ---
             saveSurvey: async function() {
                 const title = document.getElementById('s-title').value;
                 if(!title) return alert("Falta título");
@@ -258,10 +266,7 @@
                 this.data.surveys.forEach(s => {
                     const assigned = s.allowedEmails ? s.allowedEmails.length : 0;
                     const badge = assigned === 0 ? '<span class="badge bg-success">Pública</span>' : `<span class="badge bg-warning text-dark">Privada (${assigned})</span>`;
-                    c.innerHTML += `<div class="card survey-card p-3 ${s.type.toLowerCase()}">
-                    <div class="d-flex justify-content-between"><div><h5 class="fw-bold">${s.title}</h5><span class="badge bg-light text-dark border">${s.type}</span> ${badge}</div><div><button onclick="app.openAssignModal(${s.id})" class="btn btn-sm btn-outline-dark me-1"><i class="bi bi-person-check"></i>Asignar</button>
-                    <button onclick="app.editSurvey(${s.id})" class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-pencil"></i>Editar</button>
-                    <button onclick="app.deleteSurvey(${s.id})" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i>Eliminar</button></div></div></div>`;
+                    c.innerHTML += `<div class="card survey-card p-3 ${s.type.toLowerCase()}"><div class="d-flex justify-content-between"><div><h5 class="fw-bold">${s.title}</h5><span class="badge bg-light text-dark border">${s.type}</span> ${badge}</div><div><button onclick="app.openAssignModal(${s.id})" class="btn btn-sm btn-outline-dark me-1"><i class="bi bi-person-check"></i></button><button onclick="app.editSurvey(${s.id})" class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-pencil"></i></button><button onclick="app.deleteSurvey(${s.id})" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></div></div>`;
                 });
             },
             showSurveyForm: function() { document.getElementById('surveys-list-container').classList.add('d-none'); document.getElementById('survey-form-container').classList.remove('d-none'); this.state.draftQuestions = []; this.state.editingId = null; },
@@ -311,7 +316,7 @@
                 const idx = this.data.surveys.findIndex(s => s.id == this.state.assignId);
                 const newAllowed = Array.from(this.state.tempAssign);
                 
-                // Update Supabase 
+                // Update Supabase
                 await supabaseApi.update('encuestas', this.state.assignId, { allowedEmails: newAllowed });
                 
                 // Update Local
@@ -322,16 +327,14 @@
                 alert("Asignación guardada");
             },
 
-            // --- Invitaciones ---
+            // --- Invitaciones  ---
             renderInvites: function() {
                 const term = document.getElementById('invite-search').value.toLowerCase();
                 const tbody = document.getElementById('table-invites-body');
                 tbody.innerHTML = '';
                 this.data.participants.filter(p=>p.email.toLowerCase().includes(term)).forEach(p => {
                     const badge = p.hasVoted ? '<span class="badge bg-secondary">Votó</span>' : '<span class="badge bg-success">Pendiente</span>';
-                    let btns = !p.hasVoted ? `<button onclick="app.copyLink('${p.email}')" class="btn btn-sm btn-outline-secondary me-1"><i class="bi bi-link-45deg"></i>Copiar link</button>
-                    <button onclick="app.sendEmail('${p.email}', this)" class="btn btn-sm btn-primary me-1"><i class="bi bi-envelope"></i>Enviar email</button>
-                    <button onclick="app.handleLogin('${p.email}', true)" class="btn btn-sm btn-warning"><i class="bi bi-play-circle"></i>Previsualizar</button>` : '';
+                    let btns = !p.hasVoted ? `<button onclick="app.copyLink('${p.email}')" class="btn btn-sm btn-outline-secondary me-1"><i class="bi bi-link-45deg"></i></button><button onclick="app.sendEmail('${p.email}', this)" class="btn btn-sm btn-primary me-1"><i class="bi bi-envelope"></i></button><button onclick="app.handleLogin('${p.email}', true)" class="btn btn-sm btn-warning"><i class="bi bi-play-circle"></i></button>` : '';
                     tbody.innerHTML += `<tr><td><div class="fw-bold">${p.nombre}</div><div class="small">${p.email}</div></td><td>${badge}</td><td class="text-end">${btns}</td></tr>`;
                 });
             },
